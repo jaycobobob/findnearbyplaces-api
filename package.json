@@ -1,0 +1,19 @@
+{
+  "name": "findnearbythings",
+  "version": "1.0.0",
+  "description": "API for Yelp-like service for finding and reading reviews for nearby places.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaycobobob/findnearbyplaces-api.git"
+  },
+  "author": "Jacob Edwards",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaycobobob/findnearbyplaces-api/issues"
+  },
+  "homepage": "https://github.com/jaycobobob/findnearbyplaces-api#readme"
+}
