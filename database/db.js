@@ -2,7 +2,6 @@ const { Pool } = require("pg");
 require("dotenv").config();
 
 const connectionString = `postgress://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_DATABASEPORT}/${process.env.DB_DATABASE}`;
-console.log(connectionString);
 const connection = {
     connectionString: process.env.DATABASE_URL ? process.env.DATABASE_URL : connectionString,
     ssl: { rejectUnauthorized: false },
