@@ -9,6 +9,8 @@ const handlers = require("./handlers/handlers");
 const bcrypt = require("bcrypt");
 const app = express();
 
+require("dotenv").config();
+
 // Begin Middlewares
 app.use(cors());
 app.use(express.json());
