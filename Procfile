@@ -1,1 +1,1 @@
-web: npodeindex.js
+web: node index.js
