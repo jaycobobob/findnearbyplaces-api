@@ -13,6 +13,7 @@ router.get("/login/failure", (req, res) => {
 });
 
 router.post("/customer", (req, res) => {
+    console.log("adding customer");
     const email = req.body.email;
     const password = req.body.password;
 
