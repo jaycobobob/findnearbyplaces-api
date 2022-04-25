@@ -13,8 +13,8 @@ CREATE TABLE category (
 
 CREATE TABLE customer (
 	id			SERIAL			PRIMARY KEY,
-	email		VARCHAR(256),
-	password	VARCHAR(8)
+	email		VARCHAR(256)	UNIQUE,
+	password	VARCHAR(64)
 );
 
 CREATE TABLE place (
@@ -29,7 +29,7 @@ CREATE TABLE place (
 
 CREATE TABLE review (
 	id			SERIAL			PRIMARY KEY,
-	location_id	INT8			REFERENCES place(id),
+	location_id	INT8			REFERENCES place(id) ON DELETE CASCADE,
 	customer_id INT				REFERENCES customer(id),
 	text		VARCHAR(512),
 	rating		INT2
@@ -41,11 +41,11 @@ CREATE TABLE photo (
 );
 
 CREATE TABLE place_photo (
-	location_id INT8			REFERENCES place(id),
-	photo_id	INT				REFERENCES photo(id)
+	location_id INT8			REFERENCES place(id) ON DELETE CASCADE,
+	photo_id	INT				REFERENCES photo(id) ON DELETE CASCADE
 );
 
 CREATE TABLE review_photo (
-	review_id	INT				REFERENCES review(id),
-	photo_id	INT				REFERENCES photo(id)
+	review_id	INT				REFERENCES review(id) ON DELETE CASCADE,
+	photo_id	INT				REFERENCES photo(id) ON DELETE CASCADE
 );
