@@ -11,11 +11,11 @@ const pool = new Pool(connection);
 
 let db = {
     query: (queryString, params) => {
-        console.log(commandString);
-        return pool.query(commandString, params);
+        console.log(queryString);
+        return pool.query(queryString, params);
     },
     select: (table, cols, conditional, params) => {
-        const colString = cols ? `(${join(cols, ",")})` : "*";
+        const colString = `(${cols.join(", ")})`;
         params = params.length > 0 ? params : [];
 
         const commandString = `SELECT ${colString} FROM ${table} WHERE ${conditional}`;
