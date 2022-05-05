@@ -8,11 +8,18 @@ router.get("/search/:term/:maxResults/:category/:sort", async (req, res) => {
     if (term === "any") term = "";
 
     let results = await db.query(
-        `SELECT place.id, place.name, place.address, category.name, photo.file AS category FROM place 
-        LEFT JOIN category ON place.category_id = category.id 
-        LEFT JOIN place_photo ON place.id = place_photo.location_id
-        LEFT JOIN photo ON place_photo.photo_id = photo.id
-        WHERE place.name LIKE '${term}%' ;`
+        `SELECT 
+            place.id, 
+            place.name, 
+            place.address, 
+            category.name AS category, 
+            photo.file 
+        FROM place 
+            LEFT JOIN category ON place.category_id = category.id 
+            LEFT JOIN place_photo ON place.id = place_photo.location_id
+            LEFT JOIN photo ON place_photo.photo_id = photo.id
+        WHERE 
+            place.name LIKE '${term}%' ;`
     );
     if (results.rows.length === 0) {
         res.json({ done: true, result: [] });
